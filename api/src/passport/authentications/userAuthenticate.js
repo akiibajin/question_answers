@@ -1,8 +1,10 @@
 function UserAuthenticated(req,res,next){
-    if(req.isAuthenticated()){
+    const user = req.user
+    const isAuthenticated = req.isAuthenticated();
+    if(isAuthenticated){
         return next()
     }
-    res.status(401).json({error:"User doesn't authenticated"})
+    res.status(401).json({error: "User doesn't authenticated"})
 }
 
 module.exports={

@@ -7,7 +7,7 @@ const getquestions = async (req, res) => {
       const allQuestionsByName = await Question.findAll({
         where: {
           questionName: {
-            [Op.ilike]: `%${questionName}%`,
+            [Op.like]: `%${questionName}%`,
           },
         },
       });
@@ -16,6 +16,7 @@ const getquestions = async (req, res) => {
     const allQuestions = await Question.findAll();
     res.json(allQuestions);
   } catch (error) {
+    console.log(error)
     res.status(404).json({
       error: `An error when you tried to obtain the question(s) is: ${error}`,
     });

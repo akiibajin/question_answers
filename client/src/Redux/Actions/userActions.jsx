@@ -3,7 +3,7 @@ import axios from "axios";
 export const userLogIn = (user, navigate) => {
   return (dispatch) => {
     axios
-      .post("/user/login", user)
+      .post("/user/login", user,{withCredentials:true})
       .then((userLoged) => {
         dispatch({ type: "USER_LOGED", payload: userLoged.data });
         navigate("/");
@@ -14,7 +14,7 @@ export const userLogIn = (user, navigate) => {
 
 export const userSignIn = (userData) =>{
     return (dispatch)=>{
-        axios.post("/user/signIn",userData).then(response=>response.data)
+        axios.post("/user/signIn",userData,{withCredentials:true}).then(response=>response.data)
         .then(message=>console.log(message))
         .catch(error=>console.log(error))
     }

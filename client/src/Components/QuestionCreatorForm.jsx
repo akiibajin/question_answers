@@ -28,7 +28,12 @@ export default function QuestionCreatorForm({questionCreate}) {
                <label>Name of the question: </label>
                <input type="text" name="questionName" value ={inputs.questionName} onChange={handleChange}/>
                <label>Type of the Question: </label>
-               <input type="text" name="questionCategory" value ={inputs.questionCategory} onChange={handleChange}/>
+               {/* <input type="text" name="questionCategory" value ={inputs.questionCategory} onChange={handleChange}/> */}
+               <select name="questionCategory" value={inputs.questionCategory} onChange={handleChange}>
+                   <option value="History">History</option>
+                   <option value="Computer_Science">Computer Science</option>
+                   <option value="General_Knowledge">General Knowledge</option>
+               </select>
                <label>Description: </label>
                <textarea  name="questionDescription" value ={inputs.questionDescription} onChange={handleChange}/>
                <input type="submit" value="Post your Question"/>
