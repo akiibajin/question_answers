@@ -5,6 +5,10 @@ module.exports = (sequelize)=>{
         answerContent:{
             type:DataTypes.TEXT,
             allowNull:false
+        },
+        theBest:{
+            type:DataTypes.BOOLEAN,
+            defaultValue:false
         }
     })
 }

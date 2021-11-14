@@ -10,12 +10,13 @@ const getquestions = async (req, res) => {
             [Op.like]: `%${questionName}%`,
           },
         },
-      });
-      res.json(allQuestionsByName);
+        order:[["id","DESC"]] 
+      }); 
+      return res.json(allQuestionsByName);
     }
-    const allQuestions = await Question.findAll();
+    const allQuestions = await Question.findAll({order:[["id","DESC"]]});
     res.json(allQuestions);
-  } catch (error) {
+  } catch (error) { 
     console.log(error)
     res.status(404).json({
       error: `An error when you tried to obtain the question(s) is: ${error}`,
@@ -28,7 +29,7 @@ const postQuestions = async (req, res) => {
   try {
     const newQuestion = await Question.create({
       questionName,
-      questionCategory,
+      questionCategory:questionCategory.value,
       questionDescription,
     });
     await user.addQuestions(newQuestion);
@@ -47,6 +48,16 @@ const getQuestionById=async(req,res)=>{
     res.json(questionFinded)
   }catch(error){
     res.status(401).json({error:`An error has ocurred when try to get the question by id, this is the error: ${error}`})
+  }
+}
+
+const getUserQuestions=async(req,res)=>{
+  const user=req.user
+  try{
+    const userQuestionsFinded = await Question.findAll({where:{userId:user.id}})
+
+  }catch(error){
+    res.status(404).json({error:`An error has appeared when the user ${user.name} try to find his questions, this is the error: ${userQuestionsFinded}`})
   }
 }
 

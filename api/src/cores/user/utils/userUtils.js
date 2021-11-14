@@ -22,8 +22,12 @@ const userSignIn = async (req, res) => {
     });
   }
 };
-
+const userLogout=(req,res)=>{
+  req.logout()
+  res.json({message:"Ok"})
+}
 module.exports = {
   userLogin,
   userSignIn,
+  userLogout
 };

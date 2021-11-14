@@ -19,3 +19,12 @@ export const userSignIn = (userData) =>{
         .catch(error=>console.log(error))
     }
 }
+
+export const logout = ()=>{
+  return (dispatch)=>{
+    axios.get("/user/logOut",{withCredentials:true})
+    .then(response=>response.data)
+    .then(userLoggedOut=>dispatch({type:"LOG_OUT"}))
+    .catch(error=>console.log(error))
+  }
+}

@@ -36,3 +36,10 @@ export const searchQuestionByName = (questionName) =>{
      .catch(error=>console.log(`An error has been finded when search by name a question: ${error}`))
   }
 }
+export const questionsUser=()=>{
+  return(dispatch)=>{
+    axios.get(`/questions/userQuestions`,{withCredentials:true})
+    .then(response=>console.log(response.data))
+    .catch(error=>console.log("An error has been ocurred when the user try to get his questions: ",error))
+  }
+}

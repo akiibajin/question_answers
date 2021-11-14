@@ -4,13 +4,11 @@ const bCrypt = require("bcrypt-nodejs");
 const { User } = require("../../db/postgres/db");
 
 passport.serializeUser((user, done) => {
-  console.log(user);
   return done(null, user.id);
 });
 
 passport.deserializeUser(async (id, done) => {
   const user = await User.findByPk(id);
-  console.log(user);
   return done(null, user);
 });
 

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import UserSignIn from "../Components/SignIn";
 import UserLogins from "../Components/UserLogIn";
-import { userLogIn, userSignIn } from "../Redux/Actions/userActions";
+import { userLogIn, userSignIn, logout } from "../Redux/Actions/userActions";
 import {useNavigate} from "react-router-dom"
 import Profile from "../Components/Profile";
 
@@ -16,6 +16,9 @@ export default function Login() {
   const register = (inputs) => {
     dispatch(userSignIn(inputs));
   };
+  const logoutAction=()=>{
+    dispatch(logout())
+  }
 
   if (!Object.values(user).length) {
     return (
@@ -25,6 +28,6 @@ export default function Login() {
       </div>
     );
   } else {
-    return <Profile user={user}/>;
+    return <Profile user={user} logout={logoutAction}/>;
   }
 }
