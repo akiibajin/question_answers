@@ -1,9 +1,9 @@
 const questionRouter = require("express").Router();
-const {
-  getquestions,
-  postQuestions,
-  getQuestionById
-} = require("../../cores/questions/utils/questionsUtils");
+
+const getquestions=require("../../cores/questions/use-case/get-questions")
+const postQuestions=require("../../cores/questions/use-case/post-questions")
+const getQuestionById=require("../../cores/questions/use-case/search-questions-byId")
+
 const {
   UserAuthenticated,
 } = require("../../passport/authentications/userAuthenticate");
