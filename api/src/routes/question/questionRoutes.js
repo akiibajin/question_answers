@@ -12,8 +12,8 @@ questionRouter
   .route("/")
   .get(getquestions)
   .post(UserAuthenticated, postQuestions);
-questionRouter.route("/:id").get(getQuestionById);
-questionRouter.route("/userQuestions",UserAuthenticated,getUserQuestion)
-  .get()
+questionRouter.route("/selectQuestion/:id").get(getQuestionById);
+questionRouter.route("/userQuestions")
+  .get(UserAuthenticated,getUserQuestion) 
 
 module.exports = questionRouter;

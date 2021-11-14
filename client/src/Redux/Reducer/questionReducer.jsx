@@ -22,7 +22,7 @@ const questionReducer = (state=questionInitialState,{type,payload})=>{
 
             return{
                 ...state,
-                questionUser:[...payload]
+                questionsUser:[...payload]
             }
         }
         default:return state

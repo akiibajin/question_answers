@@ -22,7 +22,7 @@ export const postQuestions=(question)=>{
 }
 export const getQuestionById=(id)=>{
     return(dispatch)=>{
-        axios.get(`/questions/${id}`)
+        axios.get(`/questions/selectQuestion/${id}`)
         .then(response=>response.data)
         .then(questionFinded=>dispatch({type:"QUESTION_FINDED_BY_ID",payload:questionFinded}))
         .catch(error=>console.log(error))
