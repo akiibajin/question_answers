@@ -6,7 +6,7 @@ const userSignUp=require("../../cores/user/use-case/user-SignUp")
 const userLogOut=require("../../cores/user/use-case/user-LogOut")
 
 const { UserAuthenticated } = require("../../passport/authentications/userAuthenticate");
-
+ 
 userRouter.route("/login").post(passport.authenticate("Login"), userLogIn);
 
 userRouter.route("/signUp").post(userSignUp);

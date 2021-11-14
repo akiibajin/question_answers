@@ -6,6 +6,7 @@ const getUserQuestions = async (req, res) => {
     const userQuestionsFinded = await Question.findAll({
       where: { userId: user.id },
     });
+    res.json(userQuestionsFinded)
   } catch (error) {
     res.status(404).json({
       error: `An error has appeared when the user ${user.name} try to find his questions, this is the error: ${userQuestionsFinded}`,

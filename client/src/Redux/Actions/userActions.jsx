@@ -14,7 +14,7 @@ export const userLogIn = (user, navigate) => {
 
 export const userSignIn = (userData) =>{
     return (dispatch)=>{
-        axios.post("/user/signIn",userData,{withCredentials:true}).then(response=>response.data)
+        axios.post("/user/signUp",userData,{withCredentials:true}).then(response=>response.data)
         .then(message=>console.log(message))
         .catch(error=>console.log(error))
     }

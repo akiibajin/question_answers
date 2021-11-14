@@ -39,7 +39,8 @@ export const searchQuestionByName = (questionName) =>{
 export const questionsUser=()=>{
   return(dispatch)=>{
     axios.get(`/questions/userQuestions`,{withCredentials:true})
-    .then(response=>console.log(response.data))
+    .then(response=>response.data)
+    .then(questionFetched=>dispatch({type:"QUESTION_USER",payload:questionFetched}))
     .catch(error=>console.log("An error has been ocurred when the user try to get his questions: ",error))
   }
 }

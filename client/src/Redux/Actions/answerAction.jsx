@@ -34,7 +34,6 @@ export const changeAnswer = (idAnswer, idQuestion) => {
       )
       .then((response) => response.data)
       .then((data) =>{
-        const container=data
         dispatch({ type: "LOAD_ANSWERS", payload: data })
       }
       )

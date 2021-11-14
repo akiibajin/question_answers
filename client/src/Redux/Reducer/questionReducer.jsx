@@ -1,21 +1,28 @@
 const questionInitialState={
     questionsCharged:[],
-    questionDetail:{}
+    questionDetail:{},
+    questionsUser:[]
 }
 
-const questionReducer = (state=questionInitialState,action)=>{
-    switch(action.type){
+const questionReducer = (state=questionInitialState,{type,payload})=>{
+    switch(type){
         case "QUESTIONS_FINDED":{
-            state.questionsCharged=[]
             return{
                 ...state,
-                questionsCharged:state.questionsCharged.concat(action.payload)
+                questionsCharged:[...payload]
             }
         }
         case "QUESTION_FINDED_BY_ID":{
             return{
                 ...state,
-                questionDetail:action.payload
+                questionDetail:payload
+            }
+        }
+        case "QUESTION_USER":{
+
+            return{
+                ...state,
+                questionUser:[...payload]
             }
         }
         default:return state
