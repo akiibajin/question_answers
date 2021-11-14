@@ -7,11 +7,9 @@ const getUserQuestions = async (req, res) => {
       where: { userId: user.id },
     });
   } catch (error) {
-    res
-      .status(404)
-      .json({
-        error: `An error has appeared when the user ${user.name} try to find his questions, this is the error: ${userQuestionsFinded}`,
-      });
+    res.status(404).json({
+      error: `An error has appeared when the user ${user.name} try to find his questions, this is the error: ${userQuestionsFinded}`,
+    });
   }
 };
 

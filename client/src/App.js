@@ -15,11 +15,8 @@ function App() {
         <Route exact path="/" element={<MainPage />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/question/create" element={<QuestionCreator />} />
-        <Route exact path="/questions" element={<QuestionsUser/>}/>
-        <Route
-          path="/questions/detail/:id"
-          element={<QuestionDetail/>}
-        />
+        <Route exact path="/questions" element={<QuestionsUser />} />
+        <Route path="/questions/detail/:id" element={<QuestionDetail />} />
       </Routes>
     </div>
   );
