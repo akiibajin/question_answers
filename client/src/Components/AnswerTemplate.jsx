@@ -10,7 +10,7 @@ export default function AnswerTemplate({ content, theBest, id, idQuestion }) {
       <p>{content}</p>
       {theBest ? <p>!</p> : <p>-</p>}
       {theBest ? (
-        <button onClick={handleClick}>Check as a Incorrect Answer</button>
+        <p></p>
       ) : (
         <button onClick={handleClick}>Check as a Correct Answer</button>
       )}

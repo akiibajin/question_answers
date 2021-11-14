@@ -2,17 +2,16 @@ const answerInitialState = {
   actualAnswers: [],
 };
 
-const answerReducer = (state = answerInitialState, action) => {
-  switch (action.type) {
-    case "ANSWER_SAVED": {
-      state.actualAnswers = [];
+const sortAnswersByTheBest = (answers) =>
+  [...answers].sort((answer) => !answer.theBest);
+
+const answerReducer = (state = answerInitialState, { type, payload }) => {
+  switch (type) {
+    case "LOAD_ANSWERS": {
       return {
         ...state,
-        actualAnswers: state.actualAnswers.concat(action.payload),
+        actualAnswers: sortAnswersByTheBest(payload),
       };
-    }
-    case "CHANGE_BEST_ANSWER": {
-
     }
     default:
       return state;

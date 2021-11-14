@@ -8,7 +8,7 @@ const changeBestAnswer = async (req, res) => {
     const questionFinded = await Question.findByPk(idQuestion);
 
     if (questionFinded.userId !== user.id)
-      return res.json({ error: "the user is not the same" });
+      return res.status(401).json({ error: "the user is not the same" });
 
     const theBestAnswer = await Answer.findOne({
       where: { questionId: idQuestion, theBest: true },
