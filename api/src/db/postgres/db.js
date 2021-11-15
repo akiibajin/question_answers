@@ -10,9 +10,9 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_DBNAME = process.env.DB_DBNAME
 const DB_DATABASE = process.env.DB_DATABASE
 
-console.log(`${DB_DBNAME}://${DB_USERNAME}:${DB_PASSWORD}@/${DB_DATABASE}`, "host: ",process.env.PSQL_HOST)
-const sequelize = new Sequelize(
-  `${DB_DBNAME}://${DB_USERNAME}:${DB_PASSWORD}@${process.env.PSQL_HOST}:5432/${DB_DATABASE}`);
+const sequelize= new Sequelize(`${DB_DBNAME}://${DB_USERNAME}:${DB_PASSWORD}@/${DB_DATABASE}`)
+// const sequelize = new Sequelize(
+//   `${DB_DBNAME}://${DB_USERNAME}:${DB_PASSWORD}@${process.env.PSQL_HOST}:5432/${DB_DATABASE}`);
 
 const User = userModel(sequelize);
 const Question = questionModel(sequelize);

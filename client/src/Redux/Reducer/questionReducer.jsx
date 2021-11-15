@@ -25,6 +25,12 @@ const questionReducer = (state=questionInitialState,{type,payload})=>{
                 questionsUser:[...payload]
             }
         }
+        case "CLEAN_QUESTION_USER":{
+            return{
+                ...state,
+                questionsUser:[]
+            }
+        }
         default:return state
     }
 }
