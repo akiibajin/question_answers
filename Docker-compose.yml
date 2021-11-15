@@ -1,0 +1,41 @@
+version: "1"
+services:
+  postgresdb:
+    image: "postgres"
+    environment:
+      POSTGRES_PASSWORD: Question_Answer
+      POSTGRES_USER: postgres
+      POSTGRES_DB: question_answers
+    volumes:
+      - ./db-data:/var/lib/postresql/data
+    ports:
+        - "4321:5432"
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: "./api"
+    depends_on: 
+      - postgresdb
+    ports: 
+      - "3001:3001"
+    volumes:
+      - /app/node_modules
+      - ./api:/app
+    environment: 
+      - PSQL_HOST=postgresdb
+      - DB_USERNAME=postgres
+      - DB_DBNAME=postgres
+      - PGDATABASE=question_answers
+      - DB_PASSWORD=Question_Answer
+      - PGPORT=5432
+      - SECRET_KEY=Bit2BitAmericasTecnicInterview
+  client: 
+    stdin_open: true
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes: 
+      - /app/node_modules
+      - ./client:/app
+    ports:
+      - "3000:3000" 
