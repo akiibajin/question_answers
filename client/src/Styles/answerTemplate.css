@@ -1,0 +1,36 @@
+.answerChildren {
+  display: grid;
+  grid-template-columns: 80vw 7vw;
+  grid-template-rows: 5vh 10vh;
+}
+.answerChildren span {
+  grid-column: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: rgb(240, 169, 37);
+  color:white;
+  font-weight: bolder;
+  border-radius: 10px;
+  justify-self: flex-end;
+  align-self: flex-start;
+  white-space: pre-wrap; 
+  white-space: -moz-pre-wrap; 
+  white-space: -pre-wrap; 
+  white-space: -o-pre-wrap; 
+  word-wrap: break-Word;
+}
+.answerChildren button {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: flex-start;
+  justify-self: center;
+  width: 6vw;
+  color:white;
+  background-color: rgb(0, 119, 255);
+  transition: 0.5s;
+  border:0px;
+  border-radius: 8px;
+}
+.answerChildren button:hover{
+    background-color: rgb(0, 68, 255);
+}
