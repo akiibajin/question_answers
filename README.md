@@ -1,8 +1,8 @@
-# question_answers
+# Question_answers
 
 <img src="https://www.job-hunt.org/wp-content/uploads/2021/05/Smart-Answers-to-the-21-Most-Common-Interview-Questions-in-2021-2.png"/>
 
-## website where you can find questions, and where you must be registered to create your questions andanswers, selecting if an answer is correct, only if you're the  question's owner.
+## Website where you can find questions, and where you must be registered to create your questions andanswers, selecting if an answer is correct, only if you're the  question's owner.
 
 <div>
 <img src="https://1000marcas.net/wp-content/uploads/2021/06/PostgreSQL-Logo.png" height="100px"/>
