@@ -17,7 +17,7 @@ export default function UserSignIn({ register }) {
   };
   return (
     <Box sx={{alignSelf:"center",justifySelf:"center",display:"flex",flexDirection:"column",maxWidth:"200px",fleWrap:"wrap"}}>
-        <Typography variant="h3" gutteBottom>Register For Free!</Typography>
+        <Typography variant="h3" gutterBottom>Register For Free!</Typography>
         <form onSubmit={handleSubmit(handleOnSubmit)}>
           <Controller
             name="name"
@@ -28,7 +28,8 @@ export default function UserSignIn({ register }) {
                 {...field} 
                 type="text"
                 label="Type your name"
-                color="success"
+                helperText={errors.name?.type==="required"?errors.name.message:" "}
+                color={errors.name?.type==="required"?"error":"success"}
                 variant="filled"
             />}
           />
@@ -39,7 +40,8 @@ export default function UserSignIn({ register }) {
             rules={{required:{value:true,message:"Input Required"}}}
             render={({field})=><TextField
             {...field}
-            color="success"
+            helperText={errors.email?.type==="required"?errors.email.message:" "}
+            color={errors.email?.type==="required"?"error":"success"}
             variant="filled"
             label="Type yor email"
             type="email"
@@ -54,7 +56,8 @@ export default function UserSignIn({ register }) {
             {...field}
             label="Type your Password"
             variant="filled"
-            color="success"
+            helperText={errors.password?.type==="required"?errors.password.message:" "}
+            color={errors.password?.type==="required"?"error":"success"}
             type="password"
             />} 
             />

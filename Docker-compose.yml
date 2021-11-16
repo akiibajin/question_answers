@@ -25,7 +25,7 @@ services:
       - PSQL_HOST=postgresdb
       - DB_USERNAME=postgres
       - DB_DBNAME=postgres
-      - PGDATABASE=question_answers
+      - DB_DATABASE=question_answers
       - DB_PASSWORD=Question_Answer
       - PGPORT=5432
       - SECRET_KEY=Bit2BitAmericasTecnicInterview

@@ -1,6 +1,8 @@
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { Box, TextField, Button, Typography} from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
+
 export default function LogIns({ logerIn }) {
+
   const {
     reset,
     handleSubmit,
@@ -14,6 +16,7 @@ export default function LogIns({ logerIn }) {
       password: "",
     });
   };
+
   return (
     <Box
       sx={{
@@ -25,7 +28,7 @@ export default function LogIns({ logerIn }) {
         fleWrap: "wrap",
       }}
     >
-      <Typography variant="h3" gutteBottom>
+      <Typography variant="h3" gutterBottom>
         Log In!
       </Typography>
       <form onSubmit={handleSubmit(handleOnSubmit)}>
@@ -38,7 +41,8 @@ export default function LogIns({ logerIn }) {
             <TextField
               {...field}
               variant="filled"
-              color="success"
+              helperText={errors.email?.type==="required"?errors.email.message:" "}
+              color={errors.email?.type==="required"?"error":"success"}
               label="Type your email"
             />
           )}
@@ -52,7 +56,8 @@ export default function LogIns({ logerIn }) {
             <TextField
               {...field}
               label="Type your password"
-              color="success"
+              helperText={errors.password?.type==="required"?errors.password.message:" "}
+              color={errors.password?.type==="required"?"error":"success"}
               variant="filled"
               type="password"
             />

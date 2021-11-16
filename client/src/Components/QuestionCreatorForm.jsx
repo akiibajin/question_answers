@@ -1,25 +1,45 @@
-
-import { TextField, Box, Button } from "@mui/material";
+import {
+  TextField,
+  Box,
+  Button,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  DialogContentText,
+  Dialog,
+} from "@mui/material";
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
-import Select from "react-select"
+import Select from "react-select";
 export default function QuestionCreatorForm({ questionCreate }) {
+  const [open, setOpen] = useState(false);
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
- 
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleOnSubmit = (data) => {
-    questionCreate(data)
+    setOpen(false);
+    questionCreate(data);
     reset({
-        questionName:"",
-        questionDescription:"",
-        questionCategory:""
-    })
+      questionName: "",
+      questionDescription: "",
+      questionCategory: "",
+    });
   };
   return (
-    <Box component="div" sx={{width:"40vw", display:"flex",flexDirection:"column"}}>
+    <Box
+      component="div"
+      sx={{ width: "40vw", display: "flex", flexDirection: "column" }}
+    >
       <form onSubmit={handleSubmit(handleOnSubmit)}>
         <Controller
           name="questionName"
@@ -33,8 +53,14 @@ export default function QuestionCreatorForm({ questionCreate }) {
               {...field}
               label="The name of the question"
               variant="filled"
-              color={errors.questionName?.type==="required"?"error":"success"}
-              helperText={errors.questionName?.type==="required"?errors.questionName.message:""}
+              color={
+                errors.questionName?.type === "required" ? "error" : "success"
+              }
+              helperText={
+                errors.questionName?.type === "required"
+                  ? errors.questionName.message
+                  : ""
+              }
             />
           )}
         />
@@ -52,8 +78,16 @@ export default function QuestionCreatorForm({ questionCreate }) {
               rows={4}
               variant="filled"
               label="The Description"
-              color={errors.questionDescription?.type==="required"?"error":"success"}
-              helperText={errors.questionDescription?.type==="required"?errors.questionDescription.message:""}
+              color={
+                errors.questionDescription?.type === "required"
+                  ? "error"
+                  : "success"
+              }
+              helperText={
+                errors.questionDescription?.type === "required"
+                  ? errors.questionDescription.message
+                  : ""
+              }
             />
           )}
         />
@@ -61,7 +95,7 @@ export default function QuestionCreatorForm({ questionCreate }) {
           name="questionCategory"
           control={control}
           defaultValue=""
-          rules={{required:true}}
+          rules={{ required: true }}
           render={({ field }) => (
             <Select
               {...field}
@@ -72,8 +106,28 @@ export default function QuestionCreatorForm({ questionCreate }) {
               ]}
             />
           )}
-        /> 
-        <Button color="primary" variant="contained" type="submit">Submit Your Question</Button>
+        />
+        <Button color="primary" onClick={handleClickOpen} variant="contained">
+          Submit Your Question
+        </Button>
+        <Dialog
+          open={open}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">{"Upload Question"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              Are you sure you want to publish this question?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleSubmit(handleOnSubmit)} autoFocus>
+              YES
+            </Button>
+            <Button onClick={handleClose}>NO</Button>
+          </DialogActions>
+        </Dialog>
       </form>
     </Box>
   );

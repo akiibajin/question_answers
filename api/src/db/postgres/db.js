@@ -11,7 +11,7 @@ const DB_DBNAME = process.env.DB_DBNAME;
 const DB_DATABASE = process.env.DB_DATABASE;
 const DB_ROUTE = process.env.DB_ROUTE;
 let sequelize=null
-if (DB_ROUTE) {
+if (!DB_USERNAME) {
    sequelize = new Sequelize(DB_ROUTE);
 } else {
    sequelize = new Sequelize(

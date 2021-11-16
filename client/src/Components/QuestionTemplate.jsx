@@ -4,14 +4,12 @@ import {
   CardMedia,
   Typography,
   Box,
-  Button,
 } from "@mui/material";
 
 export default function QuestionTemplate({
   questionName,
   questionCategory,
   questionDescription,
-  id,
 }) {
   const selectImage = () => {
     let imageContainer = "";

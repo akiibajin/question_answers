@@ -18,7 +18,8 @@ export default function AnswerForm({ answerGenerator }) {
             rules={{ required:{value:true,message:"Input Required"}}}
             render={({field})=><TextField
             {...field}
-            color="secondary"
+            helperText={errors.answerToSend?.type==="required"?errors.answerToSend.message:" "}
+            color={errors.answerToSend?.type==="required"?"error":"success"}
             label="Type your answer"
             multiline
             rows={6}
