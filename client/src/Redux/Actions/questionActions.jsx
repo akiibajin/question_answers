@@ -18,7 +18,6 @@ export const postQuestions = (question) => {
     axios
       .post("/questions", question, { withCredentials: true })
       .then((response) => response.data)
-      .then((message) => console.log(message))
       .catch((error) => console.log(error));
   };
 };

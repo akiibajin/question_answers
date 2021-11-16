@@ -29,7 +29,7 @@ const changeBestAnswer = async (req, res) => {
 
     return res.json(allAnswers);
   } catch (err) {
-    console.log(err);
+    res.status(401).json({error:`An error appeared when the answer change to the best`})
   }
 };
 

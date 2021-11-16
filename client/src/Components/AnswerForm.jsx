@@ -3,7 +3,6 @@ import { useForm, Controller } from "react-hook-form";
 export default function AnswerForm({ answerGenerator }) {
     const {control,reset,formState:{errors},handleSubmit} =useForm()
     const handleOnSubmit=(data)=>{
-        console.log(data)
         answerGenerator(data.answerToSend)
         reset({
             answerToSend:""

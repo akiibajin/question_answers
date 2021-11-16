@@ -22,7 +22,7 @@ export default function Login() {
 
   if (!Object.values(user).length) {
     return (
-      <div>
+      <div style={{display:"grid",gridTemplateColumns:"50vw 50vw"}}>
         <UserSignIn register={register} />
         <UserLogins logerIn={logerIn} />
       </div>

@@ -1,7 +1,7 @@
 .answersContainer{
     justify-self: center;
     max-height: 40vh;
-    max-width: 90vw;
+    max-width: 80vw;
     overflow: auto;
     border:2px gray solid;
     background-color: silver;

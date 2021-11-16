@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { TextField, Box, Button } from "@mui/material";
+import { TextField, Box, Button, Typography } from "@mui/material";
 export default function UserSignIn({ register }) {
   const {
     control,
@@ -16,8 +16,8 @@ export default function UserSignIn({ register }) {
     })
   };
   return (
-    <div>
-      <Box>
+    <Box sx={{alignSelf:"center",justifySelf:"center",display:"flex",flexDirection:"column",maxWidth:"200px",fleWrap:"wrap"}}>
+        <Typography variant="h3" gutteBottom>Register For Free!</Typography>
         <form onSubmit={handleSubmit(handleOnSubmit)}>
           <Controller
             name="name"
@@ -61,7 +61,6 @@ export default function UserSignIn({ register }) {
             <Button type="submit" color="secondary" variant="contained">Sign Up!</Button>
         </form>
       </Box>
-    </div>
   );
 }
 

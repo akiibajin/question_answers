@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@mui/material";
 export default function QuestionsMaper({ questionsToMap }) {
   return (
-    <div>
+    <div style={{ marginLeft:"10vw",display: "grid", gridTemplateColumns: "80vw" }}>
       {questionsToMap ? (
         questionsToMap.map((question) => (
           <div key={question.id}>
@@ -14,7 +14,9 @@ export default function QuestionsMaper({ questionsToMap }) {
               questionDescription={question.questionDescription}
             />
             <Link to={`/questions/detail/${question.id}`}>
-              <Button color="error" variant="outlined">Learn More</Button>
+              <Button color="error" variant="outlined">
+                Learn More
+              </Button>
             </Link>
           </div>
         ))

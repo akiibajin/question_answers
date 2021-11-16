@@ -1,6 +1,6 @@
 .answerChildren {
   display: grid;
-  grid-template-columns: 80vw 7vw;
+  grid-template-columns: 70vw 7vw;
   grid-template-rows: 5vh 10vh;
 }
 .answerChildren span {

@@ -3,7 +3,6 @@ const { Answer, Question } = require("../../../db/postgres/db");
 const postAnswers = async (req, res) => {
   const user = req.user;
   const { answerToSend, idQuestion } = req.body;
-  console.log("lo que llega por body: ", req.body);
   try {
     const newAnswer = await Answer.create({
       answerContent: answerToSend,

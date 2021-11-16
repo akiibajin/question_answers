@@ -19,7 +19,7 @@ export default function QuestionCreatorForm({ questionCreate }) {
     })
   };
   return (
-    <Box component="div">
+    <Box component="div" sx={{width:"40vw", display:"flex",flexDirection:"column"}}>
       <form onSubmit={handleSubmit(handleOnSubmit)}>
         <Controller
           name="questionName"
@@ -61,6 +61,7 @@ export default function QuestionCreatorForm({ questionCreate }) {
           name="questionCategory"
           control={control}
           defaultValue=""
+          rules={{required:true}}
           render={({ field }) => (
             <Select
               {...field}

@@ -25,19 +25,6 @@ passport.use(
         return bCrypt.compareSync(passwordSent, passwordDb);
       };
 
-      // User.findOne({ where:{email} }, function (err, user) {
-      //   if (err) return done(err);
-      //   if (!user)
-      //     return done(null, false, { message: "Incorrect username." });
-
-      //   const isValidPassword = bCrypt.compareSync(password, user.password);
-
-      //   if (!isValidPassword)
-      //     return done(null, false, { message: "Incorrect password." });
-
-      //   return done(null, user);
-      // });
-
       User.findOne({ where: { email } })
         .then((userAnswer) => {
           if (!userAnswer) {

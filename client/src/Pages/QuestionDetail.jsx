@@ -18,7 +18,7 @@ export default function QuestionDetail() {
     dispatch(postAnswer(id, answerContent));
   };
   return (
-    <div>
+    <div style={{marginLeft:"10vw",gap:1}}>
       {questionDetail ? (
         <div>
           <QuestionTemplate
