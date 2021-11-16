@@ -15,9 +15,10 @@
 
   - [x] Clone this repository
   - [ ] With Docker
-    - [ ] Remember have Installed Docker on Your Desktop
+    - [ ] Remember to have Installed Docker on Your Desktop
     - [ ] Inside on the .../question_answers folder, open your prefered terminal
     - [ ] Type the command "docker-compose up -d"
+    - [ ] If you don't have installed node on a docker image, it takes a more than a few minutes 
     - [ ] Open your browser and search "http://localhost:3000" and enjoy it!
   - [ ] Without Docker 
     - [ ] Inside on the .../question_answers/api, open your prefered terminal
@@ -25,4 +26,6 @@
     - [ ] Inside on the .../question_answers/client, open the terminal
     - [ ] Type the next commands: "npm install" and then "npm run dev"
     - [ ] the webpage would open in a few seconds
+ 
+### Note: if you chose the second route, remember to have installed node on your desktop and the "npm install" run commands could be longer 
     
