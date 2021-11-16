@@ -4,7 +4,7 @@ const getUserQuestions = async (req, res) => {
   const user = req.user;
   try {
     const userQuestionsFinded = await Question.findAll({
-      where: { userId: user.id },
+      where: { userId: user.id },order: [["id", "DESC"]]
     });
     res.json(userQuestionsFinded)
   } catch (error) {

@@ -25,6 +25,13 @@ const questionReducer = (state=questionInitialState,{type,payload})=>{
                 questionsUser:[...payload]
             }
         }
+        case "QUESTION_FINDED_BY_NAME":{
+            console.log(payload)
+            return{
+                ...state,
+                questionsCharged:[...payload]
+            }
+        }
         case "CLEAN_QUESTION_USER":{
             return{
                 ...state,
