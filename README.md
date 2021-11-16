@@ -21,6 +21,10 @@
     - [ ] If you don't have installed node on a docker image, it takes a more than a few minutes 
     - [ ] Open your browser and search "http://localhost:3000" and enjoy it!
   - [ ] Without Docker 
+    - [ ] First of all, create question_answers database on your postgres
+    - [ ] Insite on the .../question_answer/api folder, create a .env file with the next enviroment variables 
+      - [ ] SECRET_KEY=Insert a secret key to the express-session
+      - [ ] DB_ROUTE=postgres://(Your pg Username):(Your postgres password)@/question_answers
     - [ ] Inside on the .../question_answers/api, open your prefered terminal
     - [ ] Type the next commands: "npm install" and then "npm start"
     - [ ] Inside on the .../question_answers/client, open the terminal
